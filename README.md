@@ -85,13 +85,28 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA playschema TO djangouser;
 
 Finally, you probably want the migrations process to be a single simple command. To do that, see for example the file `migrate.sh`.
 
-### Database firewall
+## Database cluster firewall
 
 Your database should be accessible only from certain IP address(es).
 Even if you are not afraid of attackers, be afraid of yourself accidentally running `dropdb playdb` instead of `dropdb playdb_test` during a late night hacking session.
 
 For example, on AWS, if you have a Virtual Private Cloud with CIDR 172.38.0.0/16 you can allow inbound TCP traffic on port 5432 from source 172.38.0.0/16.
 That will allow connections from any machine in that VPC, so you may want to be even more restrictive.
+
+## Multiple databases
+
+(Disclaimer: make sure to understand the difference between database and database cluster.
+A database cluster, e.g. your AWS RDS instance, can have multiple databases.
+It's not uncommon for a role to be able to access more than one database.)
+
+Privileges can be defined on a number of levels in PostgreSQL: e.g. row, table, schema, and database level.
+All of them have their uses, but let's highlight the difference between database and other levels.
+
+* An attacker can change the row, table, or schema with SQL commands,
+* but to access a different database, a new connection has to be initiated.
+
+So if something must be kept out of the reach of your web app but still in the same cluster, consider putting it in a different database.
+Django makes this [reasonably easy](https://docs.djangoproject.com/en/dev/topics/db/multi-db/).
 
 ## Further reading
 
