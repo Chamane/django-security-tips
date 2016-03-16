@@ -85,6 +85,13 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA playschema TO djangouser;
 
 Finally, you probably want the migrations process to be a single simple command. To do that, see for example the file `migrate.sh`.
 
+### Database firewall
+
+Your database should be accessible only from certain IP address(es).
+Even if you are not afraid of attackers, be afraid of yourself accidentally running `dropdb playdb` instead of `dropdb playdb_test` during a late night hacking session.
+
+For example, on AWS, if you have a Virtual Private Cloud with CIDR 172.38.0.0/16 you can allow inbound TCP traffic on port 5432 from source 172.38.0.0/16.
+That will allow connections from any machine in that VPC, so you may want to be even more restrictive.
 
 ## Further reading
 
