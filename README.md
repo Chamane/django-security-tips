@@ -19,6 +19,12 @@ Future topics should include at least monitoring and deployment practices.
 and
 [Security in Django](https://docs.djangoproject.com/en/dev/topics/security/).
 
+This skeleton has been created by commands
+```sh
+django-admin startproject playproject
+django-admin startapp plaything
+```
+
 ## Database roles, schemas, and migrations
 
 PostgreSQL has something called [schemas](http://www.postgresql.org/docs/current/static/ddl-schemas.html), which are a bit like folders in the file system.
