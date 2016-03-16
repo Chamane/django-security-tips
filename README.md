@@ -40,7 +40,7 @@ DROP SCHEMA public CASCADE;
 ```
 
 We'll have two roles, `djangouser` and `djangomigrator`.
-The `djangouser` will run your app in the production, and `djangomigrator` will perform migrations.
+The `djangouser` will be used by your application in production, and `djangomigrator` will be used to perform migrations.
 The `djangouser` will need permissions to select, insert, delete, and update rows on all the tables.
 In addition, she'll need to access the [sequences](http://www.postgresql.org/docs/current/static/functions-sequence.html) to calculate the id of new model instances.
 The lesson to learn is that she should have *only* those privileges, and not be able to for example create [trigger procedures](http://www.postgresql.org/docs/current/static/plpgsql-trigger.html).
