@@ -1,8 +1,23 @@
 # Django and PostgreSQL security tips and practices
 
-## Purpose
+## Purpose and motivation
 
-The aim of this skeleton repo is to learn and promote secure system administration tips and practices in the Django community. Let's keep it concise but include lots of copy-pastable material in order to be usable by beginners as well.
+The aim of this guide/repository is to learn and promote secure system administration tips and practices in the Django community.
+My motivation is that most articles that focus on getting a Django application up and running do not talk much about security, yet for example database security guides often feel too abstract and intimidating for newcomers.
+So let's bridge that gap!
+By pinning down PostgreSQL as the database I do not mean to discourage the use any other system -- it's just that I want to provide concrete copy-pastable commands, so a choice has to be made.
+
+The scope of the guide is yet to be defined and will depend on the people who will get involved.
+Your questions, feedback, and insight well be very welcome!
+
+Future topics should include at least monitoring and deployment practices.
+
+## Before we begin..
+
+.. Make sure you have read the
+[Django Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)
+and
+[Security in Django](https://docs.djangoproject.com/en/dev/topics/security/).
 
 ## Database roles, schemas, and migrations
 
@@ -69,5 +84,12 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA playschema TO djangouser;
 ```
 
 Finally, you probably want the migrations process to be a single simple command. To do that, see for example the file `migrate.sh`.
+
+
+## Further reading
+
+* [IBM develperWorks: Total security in a PostgreSQL database](http://www.ibm.com/developerworks/library/os-postgresecurity/)
+* [OpenSCG: Security Hardening PostgreSQL](http://www.openscg.com/wp-content/uploads/2013/04/SecurityHardeningPostgreSQL.pdf)
+* [OWASP: Backend Security Project PostgreSQL Hardening](https://www.owasp.org/index.php/OWASP_Backend_Security_Project_PostgreSQL_Hardening)
 
 ---
