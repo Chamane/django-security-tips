@@ -116,7 +116,8 @@ That's pretty scary in case you fall victim to an SQL injection attack.
 The easiest way to mitigate that threat is to use state of the art hash functions, as explained in the [Django documentation](http://django.readthedocs.org/en/latest/topics/auth/passwords.html).
 However, allowing `SELECT` on your password hashes is fundamentally insecure and you might want to consider an external identity management solution.
 
-Alternatively, PostgreSQL has something called SECURITY DEFINER functions which can perform certain activities with special privileges, a bit like `sudo` on Unix systems.
+Alternatively, there is an approach I learnt from [tsavola](https://github.com/tsavola).
+PostgreSQL has something called SECURITY DEFINER functions which can perform certain activities with special privileges, a bit like `sudo` on Unix systems.
 This makes it possible to revoke the `SELECT` privileges on your password hashes but still be able to compare them as a regular user.
 More precisely:
 
