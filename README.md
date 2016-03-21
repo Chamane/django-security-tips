@@ -12,8 +12,6 @@
 
 The aim of this guide/repository is to learn and promote secure system administration tips and practices in the Django community.
 My motivation is that most articles that focus on getting a Django application up and running do not talk much about security, yet database security guides often feel too abstract and intimidating for newcomers.
-So let's bridge that gap!
-By pinning down PostgreSQL as the database I do not mean to discourage the use any other system -- it's just that I want to provide concrete code help readers get their hands dirty, so a choice has to be made.
 
 The scope of the guide is yet to be defined and will depend on the people who will get involved.
 Your questions, feedback, and insight well be very welcome!
